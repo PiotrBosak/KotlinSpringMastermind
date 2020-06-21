@@ -4,7 +4,6 @@ import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 import pb.spring.kotlinmastermind.game.exceptions.IllegalCodeException
-import pb.spring.kotlinmastermind.game.exceptions.Result
 
 class MastermindTest {
 
@@ -14,6 +13,7 @@ class MastermindTest {
         val code = "AAAA"
         val game = MastermindGame(code)
         assertEquals(game.code, code)
+        println(MastermindGame.generateRandomCode())
     }
 
     @Test
@@ -52,7 +52,7 @@ class MastermindTest {
         assertEquals(0,result.valuePoints)
         assertEquals(4,result.positionPoints)
     }
-    private fun makeGuess(code:String,guess:String):Result{
+    private fun makeGuess(code:String,guess:String): Result {
         val mastermindGame = MastermindGame(code)
         return mastermindGame.makeGuess(guess)
     }
